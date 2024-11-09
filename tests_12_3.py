@@ -84,21 +84,21 @@ class TournamentTest(TestCase, Runner):
 class RunnerTest(unittest.TestCase):
     is_frozen = False
 
-    @unittest.skipUnless(is_frozen, 'Тесты в этом кейсе заморожены')
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_walk(self):
         runner = Runner('Alex')
         for i in range(10):
             runner.walk()
         self.assertEqual(runner.distance, 50)
 
-    @unittest.skipUnless(is_frozen, 'Тесты в этом кейсе заморожены')
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_run(self):
         runner = Runner('Ivan')
         for i in range(10):
             runner.run()
         self.assertEqual(runner.distance, 100)
 
-    @unittest.skipUnless(is_frozen, 'Тесты в этом кейсе заморожены')
+    @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     def test_challenge(self):
         runner_1 = Runner('Alex')
         runner_2 = Runner('Ivan')
@@ -106,7 +106,6 @@ class RunnerTest(unittest.TestCase):
             runner_1.walk()
             runner_2.run()
         self.assertNotEqual(runner_1.distance, runner_2.distance)
-
 
 
 if __name__ == "__main__":
